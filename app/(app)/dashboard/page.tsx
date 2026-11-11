@@ -32,7 +32,7 @@ export default async function DashboardPage() {
 
     <section className="grid gap-4 md:grid-cols-3">
       <div className="rounded-2xl bg-[#20252B] p-5 text-white md:col-span-2">
-        <div className="flex items-start justify-between"><div><p className="text-sm text-[#B9C0C6]">Today's progress</p><p className="mt-2 text-4xl font-black">{pct}<span className="text-xl text-[#92999F]">%</span></p></div><div className="rounded-xl bg-[#343B43] p-3 text-[#F4C84A]"><Target size={22}/></div></div>
+        <div className="flex items-start justify-between"><div><p className="text-sm text-[#B9C0C6]">Today&apos;s progress</p><p className="mt-2 text-4xl font-black">{pct}<span className="text-xl text-[#92999F]">%</span></p></div><div className="rounded-xl bg-[#343B43] p-3 text-[#F4C84A]"><Target size={22}/></div></div>
         <div className="mt-5 h-2 overflow-hidden rounded-full bg-[#454C53]"><div className="h-full rounded-full bg-[#F4C84A]" style={{width:`${pct}%`}}/></div>
         <p className="mt-3 text-xs text-[#B9C0C6]">{count} of {total} habits completed today</p>
       </div>
@@ -41,12 +41,12 @@ export default async function DashboardPage() {
 
     <section className="mt-8 grid gap-6 lg:grid-cols-[1.35fr_.65fr]">
       <div className="panel p-5 sm:p-6">
-        <div className="mb-5 flex items-center justify-between"><div><p className="kicker">Your routine</p><h2 className="mt-1 text-xl font-black">Today's habits</h2></div><Link href="/habits" className="text-xs font-bold text-[#737B82] hover:text-[#20252B]">Manage all <ArrowUpRight size={14} className="inline"/></Link></div>
+        <div className="mb-5 flex items-center justify-between"><div><p className="kicker">Your routine</p><h2 className="mt-1 text-xl font-black">Today&apos;s habits</h2></div><Link href="/habits" className="text-xs font-bold text-[#737B82] hover:text-[#20252B]">Manage all <ArrowUpRight size={14} className="inline"/></Link></div>
         {!habits?.length ? <div className="rounded-xl border border-dashed border-[#D9DDD7] px-5 py-10 text-center"><div className="mx-auto grid h-12 w-12 place-items-center rounded-2xl bg-[#FFF5D4]"><Target size={22}/></div><h3 className="mt-4 font-extrabold">Start with one small habit</h3><p className="mx-auto mt-2 max-w-xs text-sm text-[#737B82]">Add something simple that you would like to make part of your routine.</p><Link href="/habits" className="btn-primary mt-5 inline-flex">Create your first habit</Link></div> :
           <div className="space-y-3">{habits.map(h=><HabitToggle key={h.id} habit={h} done={completed.has(h.id)} date={localDate()}/>)}</div>}
       </div>
       <div className="space-y-5">
-        <div className="panel p-5"><div className="flex items-center gap-2"><CalendarDays size={17}/><h3 className="font-extrabold">A gentle reminder</h3></div><p className="mt-3 text-sm leading-6 text-[#737B82]">A missed day doesn't erase the effort you've already made. Look for the next opportunity to begin again.</p></div>
+        <div className="panel p-5"><div className="flex items-center gap-2"><CalendarDays size={17}/><h3 className="font-extrabold">A gentle reminder</h3></div><p className="mt-3 text-sm leading-6 text-[#737B82]">A missed day doesn&apos;t erase the effort you&apos;ve already made. Look for the next opportunity to begin again.</p></div>
         <div className="panel p-5"><div className="flex items-center gap-2"><CheckCircle2 size={17}/><h3 className="font-extrabold">Your daily check-in</h3></div><p className="mt-3 text-sm leading-6 text-[#737B82]">Mark habits as you complete them. Your progress is saved to your private account.</p><div className="mt-4 rounded-lg bg-[#FFF7DF] p-3 text-xs font-semibold text-[#5D4914]">Tip: Weekly habits can have flexible targets.</div></div>
       </div>
     </section>
