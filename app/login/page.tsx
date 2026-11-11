@@ -27,8 +27,8 @@ export default function LoginPage() {
       });
       if (error) throw error;
       setMessage("Check your IIT Dharwad inbox. We sent you a secure sign-in link.");
-    } catch (err:any) {
-      setError(err.message || "Unable to send the sign-in email. Please try again.");
+    } catch (err:unknown) {
+      setError(err instanceof Error ? err.message : "Unable to send the sign-in email. Please try again.");
     } finally { setBusy(false); }
   }
 
@@ -52,7 +52,7 @@ export default function LoginPage() {
           <div className="mb-8 lg:hidden"><span className="brand-mark">H</span></div>
           <p className="kicker">Welcome to HabitFlow</p>
           <h2 className="mt-3 text-3xl font-black tracking-tight">Sign in to continue.</h2>
-          <p className="mt-3 text-sm leading-6 text-[#737B82]">Use your official IIT Dharwad email. We'll send you a one-time secure sign-in link.</p>
+          <p className="mt-3 text-sm leading-6 text-[#737B82]">Use your official IIT Dharwad email. We&apos;ll send you a one-time secure sign-in link.</p>
           <form onSubmit={submit} className="mt-8 space-y-5">
             <div><label className="label" htmlFor="email">IIT Dharwad email</label><div className="relative"><Mail size={17} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#92999F]"/><input id="email" className="field pl-10" type="email" autoComplete="email" placeholder="yourname@iitdh.ac.in" value={email} onChange={e=>setEmail(e.target.value)} required/></div><p className="mt-2 text-xs text-[#92999F]">Only addresses ending in @iitdh.ac.in are accepted.</p></div>
             {error && <p role="alert" className="rounded-xl bg-[#FFF0EE] p-3 text-sm text-[#9D342D]">{error}</p>}
